@@ -1,23 +1,23 @@
 import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom"
 import './App.css';
+import ApartmentsPage from './pages/ApartmentsPage';
+import DetailPage from './pages/DetailPage';
+import NewApartment from './pages/NewApartment';
+
+
+// Ruta para mostrar la lista de departamentos https://ironbnb-m3.herokuapp.com/apartments
+// Ruta para ver el detalle de un apartamento https://ironbnb-m3.herokuapp.com/apartments/627e6e3770cc1c0016998a48
+// Ruta para crear un nuevo apartamento https://ironbnb-m3.herokuapp.com/apartments
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<ApartmentsPage />} />
+        <Route path="/new-apartment" element={<NewApartment />} />
+        <Route path="/apartments/:id" element={<DetailPage />} />
+      </Routes>
     </div>
   );
 }
